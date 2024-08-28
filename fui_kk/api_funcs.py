@@ -1,3 +1,12 @@
+#!/usr/bin/env python3
+"""Functions to authenticate with the nettskjema API using tokens and some standard requests."""
+
+__authors__    = ["Peter Hjelle Petersen-Øverleir"]
+__copyright__  = "Peter Hjelle Petersen-Øverleir"
+__credits__    = ["Peter Hjelle Petersen-Øverleir"]
+__license__    = "MIT"
+
+
 import requests
 from requests.auth import HTTPBasicAuth
 import datetime
