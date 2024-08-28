@@ -2,12 +2,13 @@
 # -*- coding: utf-8 -*-
 """Documentation string"""
 
-__authors__    = ["Ole Herman Schumacher Elgesem"]
+__authors__    = ["Ole Herman Schumacher Elgesem", "Peter Hjelle Petersen-Øverleir"]
+__modified_by__ = ["Peter Hjelle Petersen-Øverleir"]
 __copyright__  = "Ole Herman Schumacher Elgesem"
 __credits__    = []
 __license__    = "MIT"
 # This file is subject to the terms and conditions defined in
-# file 'LICENSE.txt', which is part of this source code package.
+# 'LICENSE.txt', which is part of this source code package.
 
 import os
 import sys
@@ -223,7 +224,17 @@ def print_error_check(scales):
 def generate_scales(semester):
     scales = OrderedDict()
     scales_path = "./data/"+semester+"/outputs/scales.json"
-    default_scales_path = "./resources/scales.json"
+    
+    # Determine the year from the semester string
+    year = int(semester[1:])
+    
+    print(year)
+    # Choose the correct scales file based on the year
+    if year < 2023 or semester == "V2023":
+        default_scales_path = "./resources/old_scales.json"
+    else:
+        default_scales_path = "./resources/scales.json"
+    
     if not os.path.exists(scales_path):
         scales = load_json(default_scales_path)
     else:

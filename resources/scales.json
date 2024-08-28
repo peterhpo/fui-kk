@@ -1,663 +1,762 @@
 {
-  "Hva er ditt generelle intrykk av kurset?": {
-    "order": [
-      "Særdeles bra",
-      "Meget bra",
-      "Bra",
-      "Greit",
-      "Mindre bra",
-      "Lite bra"
-    ],
-    "all": [
-      "",
-      "Særdeles bra",
-      "Meget bra",
-      "Bra",
-      "Greit",
-      "Mindre bra",
-      "Lite bra"
-    ],
-    "ignore": [
-      ""
-    ]
-  },
-  "Hva synes du om emnets nivå?": {
-    "order": [
-      "For vanskelig",
-      "Vanskelig",
-      "Passe",
-      "Lett",
-      "For lett"
-    ],
-    "all": [
-      "",
-      "Vanskelig",
-      "For lett",
-      "For vanskelig",
-      "Noe vanskelig",
-      "Passe",
-      "Noe lett",
-      "Lett"
-    ],
-    "ignore": [
-      "Noe vanskelig",
-      "Noe lett",
-      ""
-    ]
-  },
-  "Hva synes du om arbeidsmengden sett i forhold til antall studiepoeng?": {
-    "order": [
-      "For stor",
-      "Stor",
-      "Passe",
-      "Liten",
-      "For liten"
-    ],
-    "all": [
-      "",
-      "Stor",
-      "For stor",
-      "Liten",
-      "For liten",
-      "For høy",
-      "Høy",
-      "Passe",
-      "Lav",
-      "For lav"
-    ],
-    "ignore": [
-      "For høy",
-      "Høy",
-      "For lav",
-      "Lav",
-      ""
-    ]
-  },
-  "Kvaliteten på forelesningene?": {
-    "order": [
-      "Særdeles bra",
-      "Meget bra",
-      "Bra",
-      "Grei",
-      "Mindre bra",
-      "Lite bra"
-    ],
-    "all": [
-      "Vet ikke",
-      "",
-      "Særdeles bra",
-      "Meget bra",
-      "Bra",
-      "Grei",
-      "Mindre bra",
-      "Lite bra"
-    ],
-    "ignore": [
-      "Vet ikke",
-      ""
-    ]
-  },
-  "Forelesningenes relevans og nytteverdi i forhold til å formidle det du trenger å lære?": {
-    "order": [
-      "Særdeles bra",
-      "Meget bra",
-      "Bra",
-      "Grei",
-      "Mindre bra",
-      "Lite bra"
-    ],
-    "all": [
-      "Vet ikke",
-      "",
-      "Særdeles bra",
-      "Meget bra",
-      "Bra",
-      "Grei",
-      "Mindre bra",
-      "Lite bra"
-    ],
-    "ignore": [
-      "Vet ikke",
-      ""
-    ]
-  },
-  "Kvaliteten på gruppeundervisningen i sin helhet?": {
-    "order": [
-      "Særdeles bra",
-      "Meget bra",
-      "Bra",
-      "Grei",
-      "Mindre bra",
-      "Lite bra"
-    ],
-    "all": [
-      "Vet ikke",
-      "",
-      "Særdeles bra",
-      "Meget bra",
-      "Bra",
-      "Grei",
-      "Mindre bra",
-      "Lite bra"
-    ],
-    "ignore": [
-      "Vet ikke",
-      ""
-    ]
-  },
-  "I hvilken grad forbedrer ukesoppgavene og gruppeundervisningen din forståelse av pensum?": {
-    "order": [
-      "Særdeles bra",
-      "Meget bra",
-      "Bra",
-      "Grei",
-      "Mindre bra",
-      "Lite bra"
-    ],
-    "all": [
-      "Vet ikke",
-      "",
-      "Særdeles bra",
-      "Meget bra",
-      "Bra",
-      "Grei",
-      "Mindre bra",
-      "Lite bra"
-    ],
-    "ignore": [
-      "Vet ikke",
-      ""
-    ]
-  },
-  "Er pensum og læringsmål i emnet godt definert?": {
-    "order": [
-      "Særdeles bra",
-      "Meget bra",
-      "Bra",
-      "Grei",
-      "Mindre bra",
-      "Lite bra"
-    ],
-    "all": [
-      "Vet ikke",
-      "",
-      "Særdeles bra",
-      "Meget bra",
-      "Bra",
-      "Grei",
-      "Mindre bra",
-      "Lite bra"
-    ],
-    "ignore": [
-      "Vet ikke",
-      ""
-    ]
-  },
-  "Hvordan vurderer du kursmateriellet som benyttes (lærebok m.m.)?": {
-    "order": [
-      "Særdeles bra",
-      "Meget bra",
-      "Bra",
-      "Grei",
-      "Mindre bra",
-      "Lite bra"
-    ],
-    "all": [
-      "Vet ikke",
-      "",
-      "Særdeles bra",
-      "Meget bra",
-      "Bra",
-      "Grei",
-      "Mindre bra",
-      "Lite bra"
-    ],
-    "ignore": [
-      "Vet ikke",
-      ""
-    ]
-  },
-  "Hvordan er nivået på obligene?": {
-    "order": [
-      "For høyt",
-      "Høyt",
-      "Passe",
-      "Lavt",
-      "For lavt"
-    ],
-    "all": [
-      "Ikke aktuelt",
-      "",
-      "For høyt",
-      "Høyt",
-      "Passe",
-      "Lavt",
-      "For lavt"
-    ],
-    "ignore": [
-      "Ikke aktuelt",
-      ""
-    ]
-  },
-  "Hva synes du om antallet obliger?": {
-    "order": [
-      "For høyt",
-      "Høyt",
-      "Passe",
-      "Lavt",
-      "For lavt"
-    ],
-    "all": [
-      "Ikke aktuelt",
-      "",
-      "For høyt",
-      "Høyt",
-      "Passe",
-      "Lavt",
-      "For lavt"
-    ],
-    "ignore": [
-      "Ikke aktuelt",
-      ""
-    ]
-  },
-  "Hva synes du om nivået på avsluttende eksamen?": {
-    "order": [
-      "For høyt",
-      "Høyt",
-      "Passe",
-      "Lavt",
-      "For lavt"
-    ],
-    "all": [
-      "Ikke aktuelt",
-      "",
-      "For høyt",
-      "Høyt",
-      "Passe",
-      "Lavt",
-      "For lavt"
-    ],
-    "ignore": [
-      "Ikke aktuelt",
-      ""
-    ]
-  },
-  "How do you rate the course in general?": {
-    "order": [
-      "Exceptionally good",
-      "Very good",
-      "Good",
-      "OK",
-      "Not that good",
-      "Not good"
-    ],
-    "all": [
-      "",
-      "Exceptionally good",
-      "Very good",
-      "Good",
-      "OK",
-      "Not that good",
-      "Not good"
-    ],
-    "ignore": [
-      ""
-    ]
-  },
-  "How do you rate the level of the course?": {
-    "order": [
-      "Too difficult",
-      "Difficult",
-      "OK",
-      "Easy",
-      "Too easy"
-    ],
-    "all": [
-      "",
-      "Too difficult",
-      "Difficult",
-      "OK",
-      "Easy",
-      "Too easy"
-    ],
-    "ignore": [
-      ""
-    ]
-  },
-  "How do you rate the work load in proportion to the number of credits achieved?": {
-    "order": [
-      "Too large",
-      "Large",
-      "OK",
-      "Small",
-      "Too small"
-    ],
-    "all": [
-      "",
-      "Too large",
-      "Large",
-      "OK",
-      "Small",
-      "Too small"
-    ],
-    "ignore": [
-      ""
-    ]
-  },
-  "The quality of the lectures?": {
-    "order": [
-      "Exceptionally good",
-      "Very good",
-      "Good",
-      "OK",
-      "Not that good",
-      "Not good"
-    ],
-    "all": [
-      "No opinion",
-      "",
-      "Exceptionally good",
-      "Very good",
-      "Good",
-      "OK",
-      "Not that good",
-      "Not good"
-    ],
-    "ignore": [
-      "No opinion",
-      ""
-    ]
-  },
-  "The lectures' relevance and usefulness in regard to relaying what you need to learn?": {
-    "order": [
-      "Exceptionally good",
-      "Very good",
-      "Good",
-      "OK",
-      "Not that good",
-      "Not good"
-    ],
-    "all": [
-      "No opinion",
-      "",
-      "Exceptionally good",
-      "Very good",
-      "Good",
-      "OK",
-      "Not that good",
-      "Not good"
-    ],
-    "ignore": [
-      "No opinion",
-      ""
-    ]
-  },
-  "The quality of the group tuition as a whole?": {
-    "order": [
-      "Exceptionally good",
-      "Very good",
-      "Good",
-      "OK",
-      "Not that good",
-      "Not good"
-    ],
-    "all": [
-      "No opinion",
-      "",
-      "Exceptionally good",
-      "Very good",
-      "Good",
-      "OK",
-      "Not that good",
-      "Not good"
-    ],
-    "ignore": [
-      "No opinion",
-      ""
-    ]
-  },
-  "In what degree does group tuition and weekly assignments give you practical skills and the possibility to make use of the theory at hand?": {
-    "order": [
-      "Exceptionally good",
-      "Very good",
-      "Good",
-      "OK",
-      "Not that good",
-      "Not good"
-    ],
-    "all": [
-      "No opinion",
-      "",
-      "Exceptionally good",
-      "Very good",
-      "Good",
-      "OK",
-      "Not that good",
-      "Not good"
-    ],
-    "ignore": [
-      "No opinion",
-      ""
-    ]
-  },
-  "Are the curriculum and learning outcomes of the course sufficiently defined?": {
-    "order": [
-      "Exceptionally good",
-      "Very good",
-      "Good",
-      "OK",
-      "Not that good",
-      "Not good"
-    ],
-    "all": [
-      "No opinion",
-      "",
-      "Exceptionally good",
-      "Very good",
-      "Good",
-      "OK",
-      "Not that good",
-      "Not good"
-    ],
-    "ignore": [
-      "No opinion",
-      ""
-    ]
-  },
-  "How do you rate the course material used (text book etc.)?": {
-    "order": [
-      "Exceptionally good",
-      "Very good",
-      "Good",
-      "OK",
-      "Not that good",
-      "Not good"
-    ],
-    "all": [
-      "No opinion",
-      "",
-      "Exceptionally good",
-      "Very good",
-      "Good",
-      "OK",
-      "Not that good",
-      "Not good"
-    ],
-    "ignore": [
-      "No opinion",
-      ""
-    ]
-  },
-  "How do you rate the difficulty level of the obligatory assignments?": {
-    "order": [
-      "Too high",
-      "High",
-      "OK",
-      "Low",
-      "Too low"
-    ],
-    "all": [
-      "Not relevant",
-      "",
-      "Too high",
-      "High",
-      "OK",
-      "Low",
-      "Too low"
-    ],
-    "ignore": [
-      "Not relevant",
-      ""
-    ]
-  },
-  "What is your opinion in regard to the number of obligatory assignments?": {
-    "order": [
-      "Too high",
-      "High",
-      "OK",
-      "Low",
-      "Too low"
-    ],
-    "all": [
-      "Not relevant",
-      "",
-      "Too high",
-      "High",
-      "OK",
-      "Low",
-      "Too low"
-    ],
-    "ignore": [
-      "Not relevant",
-      ""
-    ]
-  },
-  "How do you rate the difficulty level of the final examination?": {
-    "order": [
-      "Too high",
-      "High",
-      "OK",
-      "Low",
-      "Too low"
-    ],
-    "all": [
-      "Not relevant",
-      "",
-      "Too high",
-      "High",
-      "OK",
-      "Low",
-      "Too low"
-    ],
-    "ignore": [
-      "Not relevant",
-      ""
-    ]
-  },
-  "Hva er ditt generelle inntrykk av kurset?": {
-    "order": [
-      "Meget bra",
-      "Ganske bra",
-      "Noe bra",
-      "Hverken bra eller dårlig",
-      "Noe dårlig",
-      "Ganske dårlig",
-      "Meget dårlig"
-    ],
-    "all": [
-      "Ganske bra",
-      "Hverken bra eller dårlig",
-      "Noe bra",
-      "Ganske dårlig",
-      "Noe dårlig",
-      "Meget dårlig",
-      "Meget bra"
-    ],
-    "ignore": []
-  },
-  "What is your general impression of the course?": {
-    "order": [
-      "Very good",
-      "Quite good",
-      "Somewhat good",
-      "Neither good nor bad",
-      "Somewhat bad",
-      "Quite bad",
-      "Very bad"
-    ],
-    "all": [
-      "Neither good nor bad",
-      "Somewhat good",
-      "Somewhat bad",
-      "Quite bad",
-      "Very bad",
-      "Very good",
-      "Quite good",
-      "Exceptionally good",
-      "Exceptionally bad"
-    ],
-    "ignore": ["Exceptionally good", "Exceptionally bad"]
-  },
-  "What do you think of the course's difficulty level?": {
-    "order": [
-      "Too difficult",
-      "Difficult",
-      "Appropriate",
-      "Easy",
-      "Too easy"
-    ],
-    "all": [
-      "Appropriate",
-      "Too difficult",
-      "Difficult",
-      "Easy",
-      "Too easy"
-    ],
-    "ignore": []
-  },
-  "What do you think of the amount of work required in relation to a number of credits given?": {
-    "order": [
-      "Too large",
-      "Large",
-      "Appropriate",
-      "Small",
-      "Too small"
-    ],
-    "all": [
-      "Appropriate",
-      "",
-      "Too large",
-      "Large",
-      "Small",
-      "Too small"
-    ],
-    "ignore": [
-      ""
-    ]
-  },
-  "What is your general impression of the quality of the lectures?": {
-    "order": [
-      "Very good",
-      "Quite good",
-      "Somewhat good",
-      "Neither good nor bad",
-      "Somewhat bad",
-      "Quite bad",
-      "Very bad"
-    ],
-    "all": [
-      "Somewhat good",
-      "",
-      "Somewhat bad",
-      "Neither good nor bad",
-      "Quite bad",
-      "Very bad",
-      "Very good",
-      "Quite good",
-      "Exceptionally good",
-      "Exceptionally bad"
-    ],
-    "ignore": ["", "Exceptionally good", "Exceptionally bad"]
+    "Hva er ditt generelle inntrykk av emnet?": {
+        "order": [
+            "Meget bra",
+            "Ganske bra",
+            "Noe bra",
+            "Hverken bra eller dårlig",
+            "Noe dårlig",
+            "Ganske dårlig",
+            "Meget dårlig"
+        ],
+        "all": [
+            "",
+            "Meget bra",
+            "Ganske bra",
+            "Noe bra",
+            "Hverken bra eller dårlig",
+            "Noe dårlig",
+            "Ganske dårlig",
+            "Meget dårlig"
+        ],
+      "ignore": [
+        ""
+      ]
+    },
+    "Hva synes du om emnets nivå?": {
+      "order": [
+        "For vanskelig",
+        "Vanskelig",
+        "Passe",
+        "Lett",
+        "For lett"
+      ],
+      "all": [
+        "",
+        "Vanskelig",
+        "For lett",
+        "For vanskelig",
+        "Noe vanskelig",
+        "Passe",
+        "Noe lett",
+        "Lett"
+      ],
+      "ignore": [
+        "Noe vanskelig",
+        "Noe lett",
+        ""
+      ]
+    },
+    "Hva synes du om den arbeidsmengden sett i forhold til antall studiepoeng?": {
+      "order": [
+        "For stor",
+        "Stor",
+        "Passe",
+        "Liten",
+        "For liten"
+      ],
+      "all": [
+        "",
+        "Stor",
+        "For stor",
+        "Liten",
+        "For liten",
+        "For høy",
+        "Høy",
+        "Passe",
+        "Lav",
+        "For lav"
+      ],
+      "ignore": [
+        "For høy",
+        "Høy",
+        "For lav",
+        "Lav",
+        ""
+      ]
+    },
+    "Hva synes du om omfanget av temaer som gjennomgås?": {
+        "order": [
+          "Meget bra",
+          "Ganske bra",
+          "Noe bra",
+          "Hverken bra eller dårlig",
+          "Noe dårlig",
+          "Ganske dårlig",
+          "Meget dårlig"
+        ],
+        "all": [
+          "",
+          "Meget bra",
+          "Ganske bra",
+          "Noe bra",
+          "Hverken bra eller dårlig",
+          "Noe dårlig",
+          "Ganske dårlig",
+          "Meget dårlig"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+      "Hvilke undervisningstilbud benyttet du?.Forelesning/plenum (Fysisk/digitalt)?": {
+        "order": [
+          "Forelesning/plenum (Fysisk/digitalt)",
+          ""
+        ],
+        "all": [
+            "Forelesning/plenum (Fysisk/digitalt)",
+            ""
+        ],
+        "ignore": []
+      },
+      "Hvilke undervisningstilbud benyttet du?.Gruppeundervisning ( seminar, lab, orakelhjelp, og liknende)?": {
+        "order": [
+          "Gruppeundervisning ( seminar, lab, orakelhjelp, og liknende)",
+          ""
+        ],
+        "all": [
+            "Gruppeundervisning ( seminar, lab, orakelhjelp, og liknende)",
+            ""
+          ],
+        "ignore": []
+      },
+    "Hvilke undervisningstilbud benyttet du?.Ingen / Kun eksamen?": {
+        "order": [
+          "Ingen / Kun eksamen",
+          ""
+        ],
+        "all": [
+            "Ingen / Kun eksamen",
+            ""
+        ],
+        "ignore": []
+      },
+    "Hvilke undervisningstilbud benyttet du?.Annet": {
+        "order": [
+            "Annet",
+            ""
+        ],
+        "all": [
+            "Annet",
+            ""
+        ],
+        "ignore": []
+      },
+      "Hvor ofte var du i forelesning?": {
+        "order": [
+            "Alltid",
+            "Ofte",
+            "Sjelden",
+            "Aldri"
+        ],
+        "all": [
+            "Alltid",
+            "Ofte",
+            "Sjelden",
+            "Aldri",
+            ""
+          ],
+          "ignore": [
+            ""
+          ]
+          },
+    "Hva er ditt inntrykk av kvaliteten på forelesningene?": {
+      "order": [
+        "Meget bra",
+        "Ganske bra",
+        "Noe bra",
+        "Hverken bra eller dårlig",
+        "Noe dårlig",
+        "Ganske dårlig",
+        "Meget dårlig"
+      ],
+      "all": [
+        "",
+        "Meget bra",
+        "Ganske bra",
+        "Noe bra",
+        "Hverken bra eller dårlig",
+        "Noe dårlig",
+        "Ganske dårlig",
+        "Meget dårlig"
+      ],
+      "ignore": [
+        ""
+      ]
+    },
+    "Hva er ditt inntrykk av kvaliteten på undervisningstilbudet utover forelesningene?": {
+        "order": [
+          "Meget bra",
+          "Ganske bra",
+          "Noe bra",
+          "Hverken bra eller dårlig",
+          "Noe dårlig",
+          "Ganske dårlig",
+          "Meget dårlig"
+        ],
+        "all": [
+          "",
+          "Meget bra",
+          "Ganske bra",
+          "Noe bra",
+          "Hverken bra eller dårlig",
+          "Noe dårlig",
+          "Ganske dårlig",
+          "Meget dårlig"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+    "Hvor viktig var denne undervisningen for din læring og forståelse av pensum?": {
+        "order": [
+          "Meget viktig",
+          "Viktig",
+          "Litt viktig",
+          "Ikke viktig"
+        ],
+        "all": [
+          "",
+          "Meget viktig",
+          "Viktig",
+          "Litt viktig",
+          "Ikke viktig"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+    "Hvilke vurderinger har blitt gjort av deg i kurset?.Underveisvurderinger (obliger, presentasjoner, og liknende)": {
+        "order": [
+          "Underveisvurderinger (obliger, presentasjoner, og liknende)",
+          ""
+        ],
+        "all": [
+            "Underveisvurderinger (obliger, presentasjoner, og liknende)",
+            ""
+          ],
+        "ignore": []
+      },
+    "Hvilke vurderinger har blitt gjort av deg i kurset?.Karaktergivende vurderinger (Eksamen, midtveiseksamen, prosjekt, og liknende)": {
+        "order": [
+          "Karaktergivende vurderinger (Eksamen, midtveiseksamen, prosjekt, og liknende)",
+          ""
+        ],
+        "all": [
+            "Karaktergivende vurderinger (Eksamen, midtveiseksamen, prosjekt, og liknende)",
+            ""
+        ],
+        "ignore": []
+      },
+    "Hvilke vurderinger har blitt gjort av deg i kurset?.Annet": {
+        "order": [
+            "Annet",
+            ""
+        ],
+        "all": [
+            "Annet",
+            ""
+        ],
+        "ignore": []
+      },
+      "Hva synes du om arbeidsmengden forbundet med underveisvurderingene?": {
+        "order": [
+          "For stor",
+          "Stor",
+          "Passe",
+          "Liten",
+          "For Liten"
+        ],
+        "all": [
+          "Ikke aktuelt",
+          "",
+          "For stor",
+          "Stor",
+          "Passe",
+          "Liten",
+          "For Liten"
+        ],
+        "ignore": [
+          "Ikke aktuelt",
+          ""
+        ]
+      },
+      "Hvor viktig var underveisvurderingene for din forståelse av pensum?": {
+        "order": [
+          "Meget viktig",
+          "Viktig",
+          "Litt viktig",
+          "Ikke viktig"
+        ],
+        "all": [
+          "",
+          "Meget viktig",
+          "Viktig",
+          "Litt viktig",
+          "Ikke viktig"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+      "Hva synes du om nivået på den karaktergivende vurderingen?": {
+        "order": [
+          "For høyt",
+          "Høyt",
+          "Passe",
+          "Lavt",
+          "For lavt"
+        ],
+        "all": [
+          "Ikke aktuelt",
+          "",
+          "For høyt",
+          "Høyt",
+          "Passe",
+          "Lavt",
+          "For lavt"
+        ],
+        "ignore": [
+          "Ikke aktuelt",
+          ""
+        ]
+      },
+      "Hvordan opplevde du tilgjengeligheten til faglærer og/eller gruppelærer ved spørsmål og uklarheter underveis i emnet?": {
+        "order": [
+          "Meget bra",
+          "Ganske bra",
+          "Noe bra",
+          "Hverken bra eller dårlig",
+          "Noe dårlig",
+          "Ganske dårlig",
+          "Meget dårlig"
+        ],
+        "all": [
+          "",
+          "Ganske bra",
+          "Hverken bra eller dårlig",
+          "Noe bra",
+          "Ganske dårlig",
+          "Noe dårlig",
+          "Meget dårlig",
+          "Meget bra"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+
+
+
+
+
+
+      "What is your general impression of the course?": {
+            "order": [
+                "Very good",
+                "Quite good",
+                "Somewhat good",
+                "Neither good nor bad",
+                "Somewhat bad",
+                "Quite bad",
+                "Very bad"
+            ],
+            "all": [
+                "Neither good nor bad",
+                "Somewhat good",
+                "Somewhat bad",
+                "Quite bad",
+                "Very bad",
+                "Quite good",
+                "Exceptionally bad",
+                "Exceptionally good",
+                "Very good"
+            ],
+            "ignore": [
+                "Exceptionally good",
+                "Exceptionally bad"
+            ]
+      },
+      "What do you think of the course&#39;s difficulty level?": {
+        "order": [
+          "Too difficult",
+          "Difficult",
+          "Appropriate",
+          "Easy",
+          "Too easy"
+        ],
+        "all": [
+          "",
+          "Too difficult",
+          "Difficult",
+          "Appropriate",
+          "Easy",
+          "Too easy"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+      "What do you think of the amount of work required in relation to the number of credits given?": {
+        "order": [
+          "Too large",
+          "Large",
+          "Appropriate",
+          "Small",
+          "Too small"
+        ],
+        "all": [
+          "",
+          "Too large",
+          "Large",
+          "Appropriate",
+          "Small",
+          "Too small"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+      "What do you think about the scope of topics that were covered in this course?": {
+        "order": [
+          "Too large",
+          "Large",
+          "Appropriate",
+          "Small",
+          "Too small"
+        ],
+        "all": [
+          "",
+          "Too large",
+          "Large",
+          "Appropriate",
+          "Small",
+          "Too small"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+      "Of the teaching available to you, what types of teaching and learning methods did you attend/use?.Lectures (physical/digital)": {
+        "order": [
+            "Lectures (physical/digital)",
+            ""
+        ],
+        "all": [
+            "Lectures (physical/digital)",
+            ""
+        ],
+        "ignore": []
+      },
+      "Of the teaching available to you, what types of teaching and learning methods did you attend/use?.Group tuition (e.g. seminar, lab/oracle sessions)": {
+        "order": [
+            "Group tuition (e.g. seminar, lab/oracle sessions)",
+            ""
+        ],
+        "all": [
+            "Group tuition (e.g. seminar, lab/oracle sessions)",
+            ""
+          ],
+        "ignore": []
+      },
+    "Of the teaching available to you, what types of teaching and learning methods did you attend/use?.Web forum (i.e. Mattermost/Discourse, ...)": {
+        "order": [
+            "Web forum (i.e. Mattermost/Discourse, ...)",
+            ""
+        ],
+        "all": [
+            "Web forum (i.e. Mattermost/Discourse, ...)",
+            ""
+        ],
+        "ignore": []
+      },
+    "Of the teaching available to you, what types of teaching and learning methods did you attend/use?.None / Exam only": {
+        "order": [
+            "None / Exam only",
+            ""
+        ],
+        "all": [
+            "None / Exam only",
+            ""
+        ],
+        "ignore": []
+      },
+      "Of the teaching available to you, what types of teaching and learning methods did you attend/use?.Other": {
+        "order": [
+            "Other",
+            ""
+        ],
+        "all": [
+            "Other",
+            ""
+        ],
+        "ignore": []
+      },
+      "How often did you participate in the lectures?": {
+        "order": [
+            "Always",
+            "Often",
+            "Rarely",
+            "Never"
+        ],
+        "all": [
+            "Always",
+            "Often",
+            "Rarely",
+            "Never",
+            ""
+          ],
+          "ignore": [
+            ""
+          ]
+      },
+      "What is your general impression of the quality of the lectures?": {
+        "order": [
+          "Very good",
+          "Quite good",
+          "Somewhat good",
+          "Neither good nor bad",
+          "Somewhat bad",
+          "Quite bad",
+          "Very bad"
+        ],
+        "all": [
+          "Somewhat good",
+          "",
+          "Somewhat bad",
+          "Neither good nor bad",
+          "Quite bad",
+          "Very bad",
+          "Quite good",
+          "Exceptionally bad",
+          "Exceptionally good",
+          "Very good"
+        ],
+        "ignore": [
+          "",
+          "Exceptionally good",
+          "Exceptionally bad"
+        ]
+      },
+      "What is your general impression of the quality of the teaching method(s)?": {
+        "order": [
+            "Very good",
+            "Quite good",
+            "Somewhat good",
+            "Neither good nor bad",
+            "Somewhat bad",
+            "Quite bad",
+            "Very bad"
+        ],
+        "all": [
+            "",
+            "Neither good nor bad",
+            "Somewhat good",
+            "Somewhat bad",
+            "Quite bad",
+            "Very bad",
+            "Quite good",
+            "Exceptionally bad",
+            "Exceptionally good",
+            "Very good"
+        ],
+        "ignore": [
+            "",
+            "Exceptionally good",
+            "Exceptionally bad"
+        ]
+    },
+    "How important was the teaching method or methods to your learning and understanding of the course curriculum?": {
+        "order": [
+            "Very important",
+            "Important",
+            "Somewhat important",
+            "Not important"
+        ],
+        "all": [
+            "",
+            "Very important",
+            "Important",
+            "Somewhat important",
+            "Not important"
+        ],
+        "ignore": [
+            ""
+        ]
+    },
+      "What types of assesments/testing have you undergone in this course?.Assessment during the course (e.g. mandatory assignments/obligs, presentations, etc.)": {
+        "order": [
+            "Assessment during the course (e.g. mandatory assignments/obligs, presentations, etc.)",
+            ""
+        ],
+        "all": [
+            "Assessment during the course (e.g. mandatory assignments/obligs, presentations, etc.)",
+            ""
+          ],
+        "ignore": []
+      },
+    "What types of assesments/testing have you undergone in this course?.Graded assessments (e.g. exam(s), mid-terms, projects)": {
+        "order": [
+            "Graded assessments (e.g. exam(s), mid-terms, projects)",
+            ""
+        ],
+        "all": [
+            "Graded assessments (e.g. exam(s), mid-terms, projects)",
+            ""
+        ],
+        "ignore": []
+      },
+    "What types of assesments/testing have you undergone in this course?.None": {
+        "order": [
+            "None",
+            ""
+        ],
+        "all": [
+            "None",
+            ""
+        ],
+        "ignore": []
+      },
+      "What types of assesments/testing have you undergone in this course?.Other": {
+        "order": [
+            "Other",
+            ""
+        ],
+        "all": [
+            "Other",
+            ""
+        ],
+        "ignore": []
+      },
+      "What do you think of the difficulty level of the assesments?": {
+        "order": [
+          "Too high",
+          "High",
+          "Appropriate",
+          "Low",
+          "Too low"
+        ],
+        "all": [
+          "Not relevant",
+          "",
+          "Too high",
+          "High",
+          "Appropriate",
+          "Low",
+          "Too low"
+        ],
+        "ignore": [
+          "Not relevant",
+          ""
+        ]
+      },
+      "How important were the assignments/assessments to your learning and understanding of the curriculum?": {
+        "order": [
+            "Very important",
+            "Important",
+            "Somewhat important",
+            "Not important"
+        ],
+        "all": [
+            "",
+            "Very important",
+            "Important",
+            "Somewhat important",
+            "Not important"
+        ],
+        "ignore": [
+            ""
+        ]
+    },
+    "What do you think of the number of assessments?": {
+        "order": [
+            "Too many",
+            "Many",
+            "Appropriate",
+            "Few",
+            "Too Few"
+          ],
+        "all": [
+            "",
+            "Too many",
+            "Many",
+            "Appropriate",
+            "Few",
+            "Too Few"
+        ],
+        "ignore": [
+            ""
+        ]
+    },
+    "What do you think of the amount of work involved with completing the assessment?": {
+        "order": [
+          "Too large",
+          "Large",
+          "Appropriate",
+          "Small",
+          "Too small"
+        ],
+        "all": [
+          "",
+          "Too large",
+          "Large",
+          "Appropriate",
+          "Small",
+          "Too small"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+      "What did you think of the difficulty level of the graded assessment?": {
+        "order": [
+          "Too high",
+          "High",
+          "Appropriate",
+          "Low",
+          "Too low"
+        ],
+        "all": [
+          "Not relevant",
+          "",
+          "Too high",
+          "High",
+          "Appropriate",
+          "Low",
+          "Too low"
+        ],
+        "ignore": [
+          "Not relevant",
+          ""
+        ]
+      },
+      "Throughout the course, how did you experience the availability of the course teachers and/or group teachers if you had questions or found something unclear?": {
+        "order": [
+            "Very good",
+            "Quite good",
+            "Somewhat good",
+            "Neither good nor bad",
+            "Somewhat bad",
+            "Quite bad",
+            "Very bad"
+        ],
+        "all": [
+            "",
+            "Neither good nor bad",
+            "Somewhat good",
+            "Somewhat bad",
+            "Quite bad",
+            "Very bad",
+            "Quite good",
+            "Exceptionally bad",
+            "Exceptionally good",
+            "Very good"
+        ],
+        "ignore": [
+            "",
+            "Exceptionally good",
+            "Exceptionally bad"
+        ]
+    }
   }
-}
