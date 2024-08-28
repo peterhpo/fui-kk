@@ -1,7 +1,11 @@
+.env
+token.json
+
 # Program output:
 ghostdriver.log
 data
 downloads
+courses
 backup
 data.tgz
 downloads.tgz
