@@ -62,7 +62,7 @@ def upload_files(src_dir, dest_dir, semester, verbose=False):
     """
 
     src_dir_html = src_dir+"/"+semester+"/downloads/html/"
-    src_dir_tsv = src_dir+"/"+semester+"/downloads/tsv/"
+    src_dir_csv = src_dir+"/"+semester+"/downloads/csv/"
     src_dir_json = src_dir+"/"+semester+"/outputs/stats/"
     src_dir_pdf = src_dir+"/"+semester+"/outputs/plots/"
 
@@ -72,17 +72,17 @@ def upload_files(src_dir, dest_dir, semester, verbose=False):
         os.makedirs(to_folder, exist_ok=True)
 
         from_html = src_dir_html + report
-        from_tsv  = src_dir_tsv + course + ".tsv"
+        from_csv  = src_dir_csv + course + ".csv"
         from_json = src_dir_json + course + ".json"
         from_pdf  = src_dir_pdf + course + ".pdf"
 
         to_html = to_folder + report
-        to_tsv  = to_folder + course + ".tsv"
+        to_csv  = to_folder + course + ".csv"
         to_json = to_folder + course + ".json"
         to_pdf  = to_folder + course + ".pdf"
 
         copy_file(from_html, to_html, verbose)
-        copy_file(from_tsv,  to_tsv, verbose)
+        copy_file(from_csv,  to_csv, verbose)
         copy_file(from_json, to_json, verbose)
         copy_file(from_pdf,  to_pdf, verbose)
 
