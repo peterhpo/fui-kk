@@ -1,6 +1,8 @@
-beautifulsoup4==4.5.1
-requests==2.31.0
-selenium==3.0.2
-matplotlib==2.0.0
-pytest==3.0.7
-paramiko==2.1.6
+beautifulsoup4==4.12.3
+requests==2.32.3
+matplotlib==3.9.2
+pytest==8.3.2
+paramiko==3.4.1
+python-dotenv==1.0.1
+pandas==2.2.2
+numpy==2.1.0
