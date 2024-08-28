@@ -1,6 +1,11 @@
-download-reports
-sort-downloads
-parse-tsv
-course
-semester
-plot-courses
+make setup
+source venv/bin/activate
+
+make download
+make download_course_list
+
+make sort_downloads
+make scales
+make responses
+make json
+make plots
