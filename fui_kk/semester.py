@@ -20,7 +20,8 @@ def get_course_data(path):
 
     if language == "NO":
         general_questions = ["Hva er ditt generelle intrykk av kurset?",
-                             "Hva er ditt generelle inntrykk av kurset?"]
+                             "Hva er ditt generelle inntrykk av kurset?",
+                             "Hva er ditt generelle inntrykk av emnet?"]
     elif language == "EN":
         general_questions = ["How do you rate the course in general?",
                              "What is your general impression of the course?"]

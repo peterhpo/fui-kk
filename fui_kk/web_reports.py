@@ -34,14 +34,21 @@ def get_general_questions():
     general_questions = []
     general_questions.append("Hva er ditt generelle intrykk av kurset?")
     general_questions.append("Hva er ditt generelle inntrykk av kurset?")
+    general_questions.append("Hva er ditt generelle inntrykk av emnet?")
     general_questions.append("How do you rate the course in general?")
     general_questions.append("What is your general impression of the course?")
     return general_questions
 
 def look_for_general_question(data):
+    if isinstance(data, list) and len(data) > 0 and isinstance(data[0], OrderedDict):
+        data = data[0]
+    else:
+        return None
+
     for q in get_general_questions():
         if q in data:
             return q
+
     return None
 
 def get_participation_string(participation, language):
@@ -78,10 +85,17 @@ def create_chart_js(question, question_stats, scales, chart_id):
         colors = "['#21428c', '#4573b8', '#a8bfd5', '#c2b59b', '#f7a21c', '#bf2026']"
     elif len(answers) == 5:
         colors = "['#21428c', '#4573b8', '#c2b59b', '#f7a21c', '#bf2026']"
+    elif len(answers) == 4:
+        colors = "['#21428c', '#4573b8', '#c2b59b', '#f7a21c']"
+    elif len(answers) == 3:
+        colors = "['#21428c', '#4573b8', '#c2b59b']"
+    elif len(answers) == 2:
+        colors = "['#21428c', '#4573b8']"
     else:
         print("Warning: Chart for '{}' omitted. No colors defined for questions with {} alternatives".format(
             question, len(answers)))
         return ''
+
     return 'insert_chart("#{}", [{}], {});'.format(chart_id, ", ".join(chart_data), colors)
 
 def web_report_course(summary_path, stat_path, output_path, html_templates, courses, scales, current_semester):
@@ -97,11 +111,12 @@ def web_report_course(summary_path, stat_path, output_path, html_templates, cour
     language = stats["language"]
     participation_string = get_participation_string(participation, language)
     try:
-        with open(summary_path,'r') as f:
+        with open(summary_path, 'r') as f:
             summary = f.read()
-    except:
+    except Exception as e:
         print("Warning: Could not open '{}' - skipping".format(summary_path))
         return False
+
     summary = summary.replace("</p>\n</blockquote>", "</blockquote>")
     summary = summary.replace("<blockquote>\n<p>", "<blockquote>")
 
@@ -113,51 +128,42 @@ def web_report_course(summary_path, stat_path, output_path, html_templates, cour
             break
     if not general_question:
         print("Could not find general question for {}".format(output_path))
+        return False
 
     general_average_text = stats["questions"][general_question]["average_text"]
-    course_url = "https://www.uio.no/studier/emner/matnat/ifi/"+course_code
+    course_url = f"https://www.uio.no/studier/emner/matnat/ifi/{course_code}"
 
     main_contents = []
     additional_js = []
     if language == "NO":
-        main_contents.append(r"<h2>Vurdering:</h2>")
-        main_contents.append(r"Velg spørsmål for å se data fra studentenes vurdering:<br />")
+        main_contents.append("<h2>Vurdering:</h2>")
+        main_contents.append("Velg spørsmål for å se data fra studentenes vurdering:<br />")
     else:
-        main_contents.append(r"<h2>Assessment:</h2>")
-        main_contents.append(r"Choose a question to see data from the student assessment:<br />")
+        main_contents.append("<h2>Assessment:</h2>")
+        main_contents.append("Choose a question to see data from the student assessment:<br />")
 
     options = []
     questions = []
     for question, question_stats in stats["questions"].items():
         question_id = re.sub('[^a-z]+', '', question.lower())
         chart_id = 'chart_' + question_id
-        questions.append('''
+        questions.append(f'''
             <div id="{question_id}" class="question">
-                <h4>{question_label}: {question}</h4>
-                <p>{average_label}: {average}</p>
+                <h4>Spørsmål{'Spørsmål' if language == "NO" else 'Question'}: {question}</h4>
+                <p>{'Gjennsomsnittlig svar' if language == "NO" else 'Average answer'}: {question_stats["average_text"]}</p>
                 <div id="{chart_id}" class="d3kk-chart"></div>
             </div>
-        '''.format(
-            question_id=question_id,
-            question_label='Spørsmål' if language == "NO" else 'Question',
-            question=question,
-            average_label='Gjennsomsnittlig svar' if language == "NO" else 'Average answer',
-            average=question_stats["average_text"],
-            chart_id=chart_id
-        ))
+        ''')
         additional_js.append(create_chart_js(question, question_stats, scales, chart_id))
-        options.append('<option value="{}">{}</option>'.format(question_id, question))
+        options.append(f'<option value="{question_id}">{question}</option>')
 
     main_contents.append('<select id="select_question" onchange="show_selected_question();">')
     main_contents.extend(options)
     main_contents.append('</select>')
-    main_contents.append('''
-        <button id="button_show_all_questions" onclick="show_all_questions();">{}</button>
-        <button id="button_hide_all_questions" onclick="show_all_questions();">{}</button>
-    '''.format(
-        'Vis alle' if language == "NO" else 'Show all',
-        'Skjul' if language == "NO" else 'Hide'
-    ))
+    main_contents.append(f'''
+        <button id="button_show_all_questions" onclick="show_all_questions();">{'Vis alle' if language == "NO" else 'Show all'}</button>
+        <button id="button_hide_all_questions" onclick="show_all_questions();">{'Skjul' if language == "NO" else 'Hide'}</button>
+    ''')
     main_contents.extend(questions)
 
     additional_js.append('''
@@ -191,9 +197,9 @@ def web_report_course(summary_path, stat_path, output_path, html_templates, cour
     ''')
 
     if language == "NO":
-        main_contents.append(r"<h2>Oppsummering:</h2>")
+        main_contents.append("<h2>Oppsummering:</h2>")
     else:
-        main_contents.append(r"<h2>Summary:</h2>")
+        main_contents.append("<h2>Summary:</h2>")
 
     try:
         split_index = summary.index("<blockquote>")
@@ -201,9 +207,9 @@ def web_report_course(summary_path, stat_path, output_path, html_templates, cour
         summary = summary[0:split_index]
         main_contents.append(summary)
         if language == "NO":
-            main_contents.append(r"<h2>Sitater:</h2>")
+            main_contents.append("<h2>Sitater:</h2>")
         else:
-            main_contents.append(r"<h2>Quotes:</h2>")
+            main_contents.append("<h2>Quotes:</h2>")
         main_contents.append(quotes)
     except ValueError:
         main_contents.append(summary)
@@ -212,18 +218,30 @@ def web_report_course(summary_path, stat_path, output_path, html_templates, cour
 
     course_rating = []
     course_dict = courses[course_code]
-    if int(current_semester[1:]) >= 2017:
-        for sem in generate_semesters("V2000", "H2016"):
-            if sem in course_dict:
-                del course_dict[sem]
 
     for semester, semester_data in course_dict.items():
-        # Dirty, some courses have both english and norwegian semesters:
         question_text = look_for_general_question(semester_data)
-        average = semester_data[question_text]["average"]
-        course_rating.append([semester, round(average+1.0, 2)])
+        
+        if question_text is None:
+            print(f"No general question found for semester {semester}")
+            continue
 
-    # Replace $ keywords from template html:
+        if isinstance(semester_data, list) and len(semester_data) > 0:
+            
+            print(semester_data)
+            first_element = semester_data[0]
+            if question_text in first_element:
+                average = first_element[question_text]["average"]
+                prev_course_code = first_element["course"]["code"]
+                course_rating.append([semester, round(average + 1.0, 2), prev_course_code])
+                print(f"Added rating for {semester}: {[semester, round(average + 1.0, 2)]}")
+            else:
+                print(f"Question '{question_text}' not found in the expected structure for semester {semester}")
+        else:
+            print(f"Unexpected data structure for semester {semester}")
+            
+    course_rating.sort()
+
     replace_tags = {
         "$COURSE_CODE": course_code,
         "$COURSE_NAME": course_name,
@@ -239,7 +257,7 @@ def web_report_course(summary_path, stat_path, output_path, html_templates, cour
     for tag, replacement in replace_tags.items():
         html = html.replace(tag, replacement)
 
-    with open(output_path,'w') as f:
+    with open(output_path, 'w') as f:
         f.write(html)
     return True
 
@@ -260,8 +278,10 @@ def web_reports_semester_folder(semester_path):
         html_templates["index"] = f.read()
     with open("./resources/web/semester-index-eng.html",'r') as f:
         html_templates["index-eng"] = f.read()
-    with open("./data/courses.json",'r') as f:
+    with open("./data/aggregated_courses.json",'r') as f:
         courses_all = json.load(f, object_pairs_hook=OrderedDict)
+        
+    print(courses_all)
 
     links = []
     links.append('<ul class="fui_courses">')
