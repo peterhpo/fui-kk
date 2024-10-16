@@ -99,50 +99,6 @@
           ""
         ]
       },
-      "Hvilke undervisningstilbud benyttet du?.Forelesning/plenum (Fysisk/digitalt)?": {
-        "order": [
-          "Forelesning/plenum (Fysisk/digitalt)",
-          ""
-        ],
-        "all": [
-            "Forelesning/plenum (Fysisk/digitalt)",
-            ""
-        ],
-        "ignore": []
-      },
-      "Hvilke undervisningstilbud benyttet du?.Gruppeundervisning ( seminar, lab, orakelhjelp, og liknende)?": {
-        "order": [
-          "Gruppeundervisning ( seminar, lab, orakelhjelp, og liknende)",
-          ""
-        ],
-        "all": [
-            "Gruppeundervisning ( seminar, lab, orakelhjelp, og liknende)",
-            ""
-          ],
-        "ignore": []
-      },
-    "Hvilke undervisningstilbud benyttet du?.Ingen / Kun eksamen?": {
-        "order": [
-          "Ingen / Kun eksamen",
-          ""
-        ],
-        "all": [
-            "Ingen / Kun eksamen",
-            ""
-        ],
-        "ignore": []
-      },
-    "Hvilke undervisningstilbud benyttet du?.Annet": {
-        "order": [
-            "Annet",
-            ""
-        ],
-        "all": [
-            "Annet",
-            ""
-        ],
-        "ignore": []
-      },
       "Hvor ofte var du i forelesning?": {
         "order": [
             "Alltid",
@@ -226,39 +182,6 @@
         "ignore": [
           ""
         ]
-      },
-    "Hvilke vurderinger har blitt gjort av deg i kurset?.Underveisvurderinger (obliger, presentasjoner, og liknende)": {
-        "order": [
-          "Underveisvurderinger (obliger, presentasjoner, og liknende)",
-          ""
-        ],
-        "all": [
-            "Underveisvurderinger (obliger, presentasjoner, og liknende)",
-            ""
-          ],
-        "ignore": []
-      },
-    "Hvilke vurderinger har blitt gjort av deg i kurset?.Karaktergivende vurderinger (Eksamen, midtveiseksamen, prosjekt, og liknende)": {
-        "order": [
-          "Karaktergivende vurderinger (Eksamen, midtveiseksamen, prosjekt, og liknende)",
-          ""
-        ],
-        "all": [
-            "Karaktergivende vurderinger (Eksamen, midtveiseksamen, prosjekt, og liknende)",
-            ""
-        ],
-        "ignore": []
-      },
-    "Hvilke vurderinger har blitt gjort av deg i kurset?.Annet": {
-        "order": [
-            "Annet",
-            ""
-        ],
-        "all": [
-            "Annet",
-            ""
-        ],
-        "ignore": []
       },
       "Hva synes du om arbeidsmengden forbundet med underveisvurderingene?": {
         "order": [
@@ -438,61 +361,6 @@
           ""
         ]
       },
-      "Of the teaching available to you, what types of teaching and learning methods did you attend/use?.Lectures (physical/digital)": {
-        "order": [
-            "Lectures (physical/digital)",
-            ""
-        ],
-        "all": [
-            "Lectures (physical/digital)",
-            ""
-        ],
-        "ignore": []
-      },
-      "Of the teaching available to you, what types of teaching and learning methods did you attend/use?.Group tuition (e.g. seminar, lab/oracle sessions)": {
-        "order": [
-            "Group tuition (e.g. seminar, lab/oracle sessions)",
-            ""
-        ],
-        "all": [
-            "Group tuition (e.g. seminar, lab/oracle sessions)",
-            ""
-          ],
-        "ignore": []
-      },
-    "Of the teaching available to you, what types of teaching and learning methods did you attend/use?.Web forum (i.e. Mattermost/Discourse, ...)": {
-        "order": [
-            "Web forum (i.e. Mattermost/Discourse, ...)",
-            ""
-        ],
-        "all": [
-            "Web forum (i.e. Mattermost/Discourse, ...)",
-            ""
-        ],
-        "ignore": []
-      },
-    "Of the teaching available to you, what types of teaching and learning methods did you attend/use?.None / Exam only": {
-        "order": [
-            "None / Exam only",
-            ""
-        ],
-        "all": [
-            "None / Exam only",
-            ""
-        ],
-        "ignore": []
-      },
-      "Of the teaching available to you, what types of teaching and learning methods did you attend/use?.Other": {
-        "order": [
-            "Other",
-            ""
-        ],
-        "all": [
-            "Other",
-            ""
-        ],
-        "ignore": []
-      },
       "How often did you participate in the lectures?": {
         "order": [
             "Always",
@@ -585,50 +453,6 @@
             ""
         ]
     },
-      "What types of assesments/testing have you undergone in this course?.Assessment during the course (e.g. mandatory assignments/obligs, presentations, etc.)": {
-        "order": [
-            "Assessment during the course (e.g. mandatory assignments/obligs, presentations, etc.)",
-            ""
-        ],
-        "all": [
-            "Assessment during the course (e.g. mandatory assignments/obligs, presentations, etc.)",
-            ""
-          ],
-        "ignore": []
-      },
-    "What types of assesments/testing have you undergone in this course?.Graded assessments (e.g. exam(s), mid-terms, projects)": {
-        "order": [
-            "Graded assessments (e.g. exam(s), mid-terms, projects)",
-            ""
-        ],
-        "all": [
-            "Graded assessments (e.g. exam(s), mid-terms, projects)",
-            ""
-        ],
-        "ignore": []
-      },
-    "What types of assesments/testing have you undergone in this course?.None": {
-        "order": [
-            "None",
-            ""
-        ],
-        "all": [
-            "None",
-            ""
-        ],
-        "ignore": []
-      },
-      "What types of assesments/testing have you undergone in this course?.Other": {
-        "order": [
-            "Other",
-            ""
-        ],
-        "all": [
-            "Other",
-            ""
-        ],
-        "ignore": []
-      },
       "What do you think of the difficulty level of the assesments?": {
         "order": [
           "Too high",
