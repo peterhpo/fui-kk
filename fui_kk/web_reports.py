@@ -149,7 +149,7 @@ def web_report_course(summary_path, stat_path, output_path, html_templates, cour
         chart_id = 'chart_' + question_id
         questions.append(f'''
             <div id="{question_id}" class="question">
-                <h4>Spørsmål{'Spørsmål' if language == "NO" else 'Question'}: {question}</h4>
+                <h4>{'Spørsmål' if language == "NO" else 'Question'}: {question}</h4>
                 <p>{'Gjennsomsnittlig svar' if language == "NO" else 'Average answer'}: {question_stats["average_text"]}</p>
                 <div id="{chart_id}" class="d3kk-chart"></div>
             </div>
