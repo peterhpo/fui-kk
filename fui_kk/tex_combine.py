@@ -108,11 +108,14 @@ def tex_combine(semester, verbose=False):
                 tex_contents.append(r"\label{course:"+course_code+r"}")
                 tex_contents.append(participation_string)
                 tex_contents.append(r'''
-                \begin{figure}[H]
-                \begin{center}
-                \includegraphics[width=0.99\textwidth]{../plots/COURSE.pdf}
-                \end{center}
-                \end{figure}
+                \begin{minipage}[t]{\textwidth}
+                \vspace*{-0.5cm}
+                \vspace*{\fill}
+                \noindent\makebox[\textwidth]{
+                    \hspace{2.5cm}\includegraphics[trim=0 50 0 0,clip,width=1.7\textwidth]{../plots/COURSE.pdf}
+                }%
+                \end{minipage}
+                \vspace*{0.2cm}
                 '''.replace("COURSE", course_code))
                 tex_contents.append(f.read())
                 tex_contents.append(r"\newpage")
