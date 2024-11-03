@@ -2,7 +2,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{helvet}
-\usepackage{babel,epsfig,moreverb,ifikompendiumforside,float}
+\usepackage{babel,epsfig,moreverb,ifikompendiumforside,float,graphicx}
 \usepackage{enumitem}
 \usepackage{color}
 \usepackage{etoolbox}
@@ -58,7 +58,7 @@
 \section{FUIs kursevaluering}
 Hvert semester utfører Fagutvalget ved Institutt for Informatikk (FUI) en evaluering av alle bachelor- og master-emner på Institutt for Informatikk (IFI).
 
-I 2016 introduserte FUI en ny teknisk løsning rundt kursevalueringen. Denne løsningen har de siste årene ikke blitt brukt, men ble i 2024 oppdatert slik at den igjen kan brukes
+I 2016 introduserte FUI en ny teknisk løsning rundt kursevalueringen. Denne løsningen har ikke blitt brukt siden 2020 grunnet endringer i Nettskjema, men ble i 2024 oppdatert for å virke med det nye Nettskjema APIet slik at den igjen kan brukes.
 Generell vurdering som vises på grafer er regnet ut basert på et enkelt gjennomsnitt, også tilbake i tid.
 Dette medfører en finere oppdelt skala og vi kan se trender bedre.
 For mer informasjon se \textbf{\hyperref[sec:OS]{Kapittel 3: Teknisk løsning - Open source}} i slutten av rapporten.
@@ -85,6 +85,7 @@ Hvert kurs er tredelt og består av
     \item Utvalgte representative sitater.
 \end{itemize}
 Kurs med veldig få respondenter er med for å kunne se statistikken, og får kortere oppsummeringer og færre sitater.
+Kurs med mindre enn 5 svar er ikke med.
 
 \newpage
 \chapter{Kurs}
