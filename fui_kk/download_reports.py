@@ -16,10 +16,11 @@ import argparse
 import pickle
 import requests
 import json
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dotenv import load_dotenv
 
 from file_funcs import path_join, path_clean, filename_clean, dump_json
-from api_funcs import obtain_token, save_token, api_request, load_token
+from api_funcs import obtain_token, save_token, api_request, load_token, init_session
 
 def get_args():
     argparser = argparse.ArgumentParser(description='Download report data from nettskjema.uio.no')
@@ -76,21 +77,84 @@ def error(msg, exception=None, *, label=None):
     print(msg)
     # sys.exit(-1)
 
-def download_files(args):
+def download_file(session, name, form_id, number_of_del_submissions, args, downloaded):
+    try:
+        if str(form_id) in downloaded:
+            print(f"Skipping {name} (id={form_id})")
+            return None
+        print(f"Fetching {name} (id={form_id})")
+    except UnicodeEncodeError as e:
+        error(f"Form id={form_id}\nForm name: {os_encode(name)}", e, label="Non-unicode codepage")
+
+    name_cleaned = filename_clean(name)
+
+    out_path = path_clean(args.out)
+    csv_path = path_join(out_path, 'csv')
+    stats_path = path_join(out_path, 'stats')
+
+    # Fetch invitations
+    try:
+        invites_url = f"https://api.nettskjema.no/v3/form/{form_id}/invitations"
+        response = api_request(session, invites_url)
+        if response.ok:
+            invitations = [json.loads(line) for line in response.text.splitlines()]
+            num_invited = len(invitations)
+            num_answered = number_of_del_submissions
+            response_rate = (num_answered / num_invited) * 100 if num_invited > 0 else 0
+
+            stats = {
+                "started": 0,
+                "answered": number_of_del_submissions,
+                "invited": num_invited,
+                "response_rate": response_rate
+            }
+        else:
+            stats = {
+                "started": 0,
+                "answered": number_of_del_submissions,
+                "invited": 0,
+                "response_rate": 0
+            }
+
+    except Exception as e:
+        error(f"Failed to fetch invitations for {name} (id={form_id})", label=f"HTTP {e}")
+        stats = {
+            "started": 0,
+            "answered": number_of_del_submissions,
+            "invited": 0,
+            "response_rate": 0
+        }
+
+    dump_json(stats, f"{stats_path}/{name_cleaned}.json")
+
+    if args.csv:
+        csv_url = f"https://api.nettskjema.no/v3/form/{form_id}/csv-report"
+        response = api_request(session, csv_url)
+        if response.ok:
+            write_to_file(csv_path, name_cleaned, 'csv', response.content.decode())
+        else:
+            error(f"Failed to fetch CSV report for {name} (id={form_id})", label=f"HTTP {response.status_code}")
+
+    with open(args.out + "/downloaded.txt", 'a') as f:
+        f.write(str(form_id) + "\n")
+
+    return {name: stats}
+
+def download_files(args, session):
     downloaded = read_list(args.out + "/downloaded.txt")
 
     formdata = read_binary(args.out + "/formdata.dat")
     if not formdata:
         forms_url = "https://api.nettskjema.no/v3/form/me"
-        response = api_request(forms_url)
+        response = api_request(session, forms_url)
         forms = response.json()
-        
+
         # Check if forms contain expected keys
         try:
             formdata = [(form['title'], form['formId'], form['numberOfDeliveredSubmissions']) for form in forms]
         except KeyError as e:
             error(f"Key error: {e}. Expected keys not found in the response", e)
-        
+
         write_binary(args.out + "/formdata.dat", formdata)
 
     if args.filter:
@@ -98,81 +162,39 @@ def download_files(args):
         print(f'Filter matched {len(filtered)} of {len(formdata)} forms')
         formdata = filtered
 
-    out_path = path_clean(args.out)
-    csv_path = path_join(out_path, 'csv')
-    stats_path = path_join(out_path, 'stats')
-    
     stats_aggregated = {}
 
-    for (name, form_id, number_of_delivered_submissions) in formdata:
-        try:
-            if str(form_id) in downloaded:
-                print(f"Skipping {name} (id={form_id})")
-                continue
-            print(f"Fetching {name} (id={form_id})")
-        except UnicodeEncodeError as e:
-            error(f"Form id={form_id}\nForm name: {os_encode(name)}", e, label="Non-unicode codepage")
-        
-        name_cleaned = filename_clean(name)
+    with ThreadPoolExecutor() as executor:
+        futures = [
+            executor.submit(download_file, session, name, form_id, number_of_del_submissions, args, downloaded)
+            for name, form_id, number_of_del_submissions in formdata
+        ]
 
-        # Fetch invitations data
-        try:
-            invites_url = f"https://api.nettskjema.no/v3/form/{form_id}/invitations"
-            response = api_request(invites_url)
-            if response.ok:
-                invitations = [json.loads(line) for line in response.text.splitlines()]
-                num_invited = len(invitations)
-                num_answered = number_of_delivered_submissions
-                response_rate = (num_answered / num_invited) * 100 if num_invited > 0 else 0
+        for future in as_completed(futures):
+            result = future.result()
+            if result:
+                stats_aggregated.update(result)
 
-                stats = {
-                    "started": 0,
-                    "answered": number_of_delivered_submissions,
-                    "invited": num_invited,
-                    "response_rate": response_rate
-                }
-                
-        except Exception as e:
-            error(f"Failed to fetch invitations for {name} (id={form_id})", label=f"HTTP {e}")
-            stats = {
-                "started": 0,
-                "answered": number_of_delivered_submissions,
-                "invited": 0,
-                "response_rate": 0
-            }
-                    
-        dump_json(stats, f"{stats_path}/{name_cleaned}.json")
-
-        # Aggregate statistics
-        stats_aggregated[name] = stats
-
-        if args.csv:
-            csv_url = f"https://api.nettskjema.no/v3/form/{form_id}/csv-report"
-            response = api_request(csv_url)
-            if response.ok:
-                write_to_file(csv_path, name_cleaned, 'csv', response.content.decode())
-            else:
-                error(f"Failed to fetch CSV report for {name} (id={form_id})", label=f"HTTP {response.status_code}")
-        
-        with open(args.out + "/downloaded.txt", 'a') as f:
-            f.write(str(form_id) + "\n")
-
+    out_path = path_clean(args.out)
+    stats_path = path_join(out_path, 'stats')
+    
     # Write the aggregated stats to a file
     stats_filename = 'stats.json'
     dump_json({"respondents": stats_aggregated}, path_join(stats_path, stats_filename))
 
 def main():
     load_dotenv()
-    
+
     args = get_args()
+    session = init_session()
     token_data = load_token()
 
     if not token_data:
-        token_data = obtain_token()
+        token_data = obtain_token(session)
         save_token(token_data)
 
     try:
-        download_files(args)
+        download_files(args, session)
     except requests.exceptions.TooManyRedirects as e:
         error("Sometimes nettskjema doesn't like us.\nJust wait a little while and continue\nby rerunning the script.", e, label="Nettskjema")
 
