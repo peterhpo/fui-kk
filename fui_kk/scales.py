@@ -230,10 +230,14 @@ def generate_scales(semester):
     
     print(year)
     # Choose the correct scales file based on the year
-    if year < 2023 or semester == "V2023":
-        default_scales_path = "./resources/old_scales.json"
+    if year < 2017:
+        default_scales_path = "./resources/pre_2017_scales.json"
+    elif year >= 2017 and year < 2019:
+        default_scales_path = "./resources/2017-2018_scales.json"
+    elif year >= 2019 and year < 2023 or semester == "V2023":
+        default_scales_path = "./resources/2019-2023_scales.json"
     else:
-        default_scales_path = "./resources/scales.json"
+        default_scales_path = "./resources/2023-20XX_scales.json"
     
     if not os.path.exists(scales_path):
         scales = load_json(default_scales_path)
