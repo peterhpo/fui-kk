@@ -12,6 +12,7 @@ import argparse
 import requests
 from collections import OrderedDict
 from bs4 import BeautifulSoup
+import concurrent.futures
 
 from file_funcs import dump_json
 
@@ -99,6 +100,28 @@ def fetch_courses(url, page=None):
     html = response.content.decode("utf-8")
     return course_dict(html)
 
+def multithread_fetch_courses(url, max_pages=3):
+    """Fetch courses data using multithreading."""
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        futures = {executor.submit(fetch_courses, url, page): page for page in range(1, max_pages + 1)}
+        all_courses = OrderedDict()
+        for future in concurrent.futures.as_completed(futures):
+            page = futures[future]
+            try:
+                courses = future.result()
+                all_courses.update(courses)
+            except Exception as exc:
+                print(f"Error fetching data from page {page}: {exc}")
+        
+        try:
+            # Fetch the default page as well
+            courses = fetch_courses(url)
+            all_courses.update(courses)
+        except Exception as exc:
+            print(f"Error fetching data from default page: {exc}")
+
+    return all_courses
+
 def course_list(url, path, filters_path, max_pages=3):
     """Main function to fetch, filter, and save course data."""
     filters = []
@@ -106,15 +129,9 @@ def course_list(url, path, filters_path, max_pages=3):
         with open(filters_path) as f:
             filters = f.read().splitlines()
 
-    all_courses = OrderedDict()
+    # Fetch course data with multithreading
+    all_courses = multithread_fetch_courses(url, max_pages)
     
-    for page in range(1, max_pages + 1):
-        print(f"Fetching data from page {page}")
-        courses = fetch_courses(url, page)
-        all_courses.update(courses)
-    courses = fetch_courses(url)
-    all_courses.update(courses)
-
     # Filter out courses based on provided filters
     filtered_courses = course_filter(all_courses, filters)
     
