@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Parses csv files and outputs json data for course."""
 
-__authors__    = ["Ole Herman Schumacher Elgesem"]
+__authors__    = ["Ole Herman Schumacher Elgesem", "Peter Hjelle Petersen-Øverleir"]
 __copyright__  = "Ole Herman Schumacher Elgesem"
 __credits__    = ["Erik Vesteraas"]
 __license__    = "MIT"
@@ -49,14 +49,24 @@ def parse_course_csv(csv_filename):
     with open(csv_filename, encoding='utf-8') as csv_file:
         for row in csv.reader(csv_file, delimiter=';'):
             data.append(row)
+    
+    if not data:
+        return {} # Handle the case when the CSV is empty
+
     labels = data[0]
     responses_raw = data[1:]
     responses = OrderedDict()
     for l in labels:
         responses[l] = []
+
     for r in range(0, len(responses_raw)):
-        for i in range(0,len(labels)):
+        if len(responses_raw[r]) != len(labels):
+            print(f"Warning: Skipping row {r} in {csv_filename} because it does not match the header length. Something with the data went wrong... You should check the file on line {r+2}.")
+            continue
+        
+        for i in range(0, len(labels)):
             responses[labels[i]].append(responses_raw[r][i])
+    
     return responses
 
 def init_csv_reader():
