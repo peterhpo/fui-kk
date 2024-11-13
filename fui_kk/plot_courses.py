@@ -37,14 +37,19 @@ import matplotlib.pyplot as plt
 import json
 from collections import OrderedDict
 import itertools
+import multiprocessing
 
 from file_funcs import dump_json, load_json, print_json
 from language import determine_language
 
-def plot_course(course_name, course_data, output, scales, semester):
+color_map = {}  # Dictionary to map course codes to colors
+
+def plot_course(args):
     """
     Plot the course evaluation over semesters, handling multiple entries per semester.
     """
+    course_name, course_data, output, scales, semester = args
+    
     try:
         scale_text = None
 
@@ -108,36 +113,38 @@ def plot_course(course_name, course_data, output, scales, semester):
         valid_semester_nums = list(range(len(valid_semesters)))
         color_cycle = itertools.cycle(plt.get_cmap('tab10').colors)
 
-        last_course_code = None
-        current_color = next(color_cycle)
+        labeled_courses = set()  # Keep track of labeled course codes for the entire plot
 
         for i, semester_code in enumerate(valid_semesters):
             scores = scores_per_semester[semester_code]
             course_codes = course_codes_per_semester[semester_code]
+
             for j, (score, course_code) in enumerate(zip(scores, course_codes)):
                 x_position = i
 
-                # Check if the course code has changed and update the color
-                if course_code != last_course_code:
-                    current_color = next(color_cycle)
-                    last_course_code = course_code
-                    
-                    # Only display the course code text when it changes
+                # Assign a color to the course code if it hasn't been assigned yet
+                if course_code not in color_map:
+                    color_map[course_code] = next(color_cycle)
+                current_color = color_map[course_code]
+
+                # Only display the course code text if it hasn't been labeled in the entire plot
+                if course_code not in labeled_courses:
                     text_label = course_code
+                    labeled_courses.add(course_code)  # Add course code to the set
                 else:
-                    text_label = ""
+                    text_label = None  # No label if already added
 
                 if score == "None":
                     median_score = (len(scale) - 1) / 2
                     ax.plot(x_position, median_score, 'x', color=current_color, alpha=0.7)
-                    if text_label:  # Only show text if label is not empty
-                        plt.text(x_position, median_score, text_label, fontsize=9, va='bottom', ha='right', color=current_color, 
-                                 bbox=dict(facecolor='white', alpha=0.5))
+                    if text_label:  # Only show text if label is not None
+                        plt.text(x_position + 0.06, median_score + 0.2, text_label, fontsize=9, va='bottom', ha='right', color=current_color, 
+                                bbox=dict(facecolor='white', alpha=0.5))
                 else:
                     ax.plot(x_position, score, 'o-', color=current_color, label=course_code if j == 0 else "", alpha=0.7)
-                    if text_label:  # Only show text if label is not empty
-                        plt.text(x_position, score, text_label, fontsize=9, va='bottom', ha='right', color=current_color, 
-                                 bbox=dict(facecolor='white', alpha=0.5))
+                    if text_label:  # Only show text if label is not None
+                        plt.text(x_position + 0.06, score + 0.2, text_label, fontsize=9, va='bottom', ha='right', color=current_color, 
+                                bbox=dict(facecolor='white', alpha=0.5))
 
                 # Connect points with a continuous line of the same color
                 if i > 0:
@@ -162,7 +169,7 @@ def plot_course(course_name, course_data, output, scales, semester):
         output_file_base = f"{output}{course_name}"
         plt.savefig(f"{output_file_base}.pdf", format='pdf')
         plt.savefig(f"{output_file_base}.png", format='png')
-        plt.close('all')
+        plt.close(fig)  # Ensure the figure is closed properly
 
         print(f"Generated plot: {output_file_base}.pdf")
     except Exception as err:
@@ -233,13 +240,17 @@ def generate_plots(courses, scales, semester_name):
     courses_to_plot = list(semester.keys())
     outdir = f"./data/{semester_name}/outputs/plots/"
     os.makedirs(outdir, exist_ok=True)
-    for course_code in courses_to_plot:
-        # pdf_path = f"{outdir}{course_code}.pdf"
-        # png_path = f"{outdir}{course_code}.png"
-        # if os.path.exists(pdf_path) and os.path.exists(png_path):
-        #     print(f"Skipping plot for {course_code} as it already exists.")
-        #     continue
-        plot_course(course_code, courses[course_code], outdir, scales, semester_name)
+
+    pool = multiprocessing.Pool()
+    args = [(course_code, courses[course_code], outdir, scales, semester_name) for course_code in courses_to_plot]
+    
+    results = pool.map(plot_course, args)
+    pool.close()
+    pool.join()
+
+    for result in results:
+        if result:
+            print(result)
 
 def plot_courses(semester):
     """
