@@ -1,7 +1,7 @@
 # Variables SETTINGS
 SEMESTER = V2024
 REPORT_WRITERS = 12
-MOUNT_PATH = /Volumes/fui
+MOUNT_PATH = /Volumes/fui/kursevaluering
 # MOUNT_PATH = Z:/fui
 # MOUNT_PATH = /mnt/fui
 
@@ -34,11 +34,11 @@ venv:
 download:
 	python3 fui_kk/download_reports.py
 
-sort_downloads:
-	python3 fui_kk/sort_downloads.py 
-
 download_course_list:
 	python3 fui_kk/download_course_list.py -o courses/courses_info.json
+
+sort_downloads:
+	python3 fui_kk/sort_downloads.py 
 
 # Setup sample data
 sample_data:
@@ -46,25 +46,30 @@ sample_data:
 	git submodule update
 	cp -r sample_data data
 
-# Process responses
-responses:
-	python3 fui_kk/responses.py -s all
-
 # Custom data scales processing
 scales:
 	python3 fui_kk/scales.py all
 
+# Process responses
+responses:
+	python3 fui_kk/responses.py -s all
+
 # JSON generation from courses and semester data
 json: course semester courses
-
-semester:
-	python3 fui_kk/semester.py
 
 course:
 	python3 fui_kk/course.py data
 
+semester:
+	python3 fui_kk/semester.py
+
 courses:
 	python3 fui_kk/courses.py
+
+# Generate plots
+plots:
+	rm -rf ./data/$(SEMESTER)/outputs/plots 
+	python3 fui_kk/plot_courses.py all
 
 # TeX report generation
 tex:
@@ -77,11 +82,6 @@ tex:
 # PDFs generation from TeX
 pdf: tex
 	bash ./fui_kk/pdf.sh $(SEMESTER)
-
-# Generate plots
-plots:
-	rm -rf ./data/$(SEMESTER)/outputs/plots 
-	python3 fui_kk/plot_courses.py all
 
 # Full pipeline for all targets above
 all: responses scales json plots tex pdf web
@@ -118,7 +118,7 @@ upload_raw:
 
 # Compute score
 score:
-	python3 ./fui_kk/score.py $(SEMESTER)
+	python3 ./fui_kk/score.py all
 
 # Clean data folders
 clean-output:

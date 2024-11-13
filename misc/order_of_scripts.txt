@@ -9,3 +9,10 @@ make scales
 make responses
 make json
 make plots
+
+# Used to calculate the average for all courses the last years and use it for the average on the website
+make score
+
+make pdf
+
+make web
