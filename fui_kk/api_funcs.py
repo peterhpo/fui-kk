@@ -121,25 +121,29 @@ def api_request(session, url, method='GET', data=None, params=None, timeout=300,
 
 # Endpoint-specific functions
 def get_form_info(session, form_id):
-    url = f"https://api.nettskjema.no/v3/form/{form_id}/info"
+    url = f"https://nettskjema.no/api/v3/form/{form_id}/info"
     return api_request(session, url).json()
 
+def get_form_info_v2(session, form_id):
+    url = f"https://nettskjema.no/api/v2/forms/{form_id}"
+    return api_request(session, url, v2_token=True).json()
+
 def get_form_submissions(session, form_id):
-    url = f"https://api.nettskjema.no/v3/form/{form_id}/answers"
+    url = f"https://nettskjema.no/api/v3/form/{form_id}/answers"
     return api_request(session, url).json()
 
 def create_submission(session, form_id, submission_data):
-    url = f"https://api.nettskjema.no/v3/form/{form_id}/submission"
+    url = f"https://nettskjema.no/api/v3/form/{form_id}/submission"
     return api_request(session, url, method='POST', data=submission_data).json()
 
 def delete_submission(session, form_id, submission_id):
-    url = f"https://api.nettskjema.no/v3/form/{form_id}/submission/{submission_id}"
+    url = f"https://nettskjema.no/api/v3/form/{form_id}/submission/{submission_id}"
     return api_request(session, url, method='DELETE').json()
 
 def update_codebook(session, form_id, codebook_data):
-    url = f"https://api.nettskjema.no/v3/form/{form_id}/codebook"
+    url = f"https://nettskjema.no/api/v3/form/{form_id}/codebook"
     return api_request(session, url, method='PUT', data=codebook_data).json()
 
 def get_user_info(session):
-    url = "https://api.nettskjema.no/v3/me"
+    url = "https://nettskjema.no/api/v3/me"
     return api_request(session, url).json()

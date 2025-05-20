@@ -94,7 +94,7 @@ def download_file(session, name, form_id, number_of_del_submissions, args, downl
 
     # Fetch invitations
     try:
-        invites_url = f"https://api.nettskjema.no/v3/form/{form_id}/invitations"
+        invites_url = f"https://nettskjema.no/api/v3/form/{form_id}/invitations"
         response = api_request(session, invites_url)
         if response.ok:
             invitations = [json.loads(line) for line in response.text.splitlines()]
@@ -125,10 +125,13 @@ def download_file(session, name, form_id, number_of_del_submissions, args, downl
             "response_rate": 0
         }
 
+
+    # TODO: check the possible error here with json being dumped wrong when response_rate and invited is 0 
+    # Seems that the error stems from the courses where the forms have been copied and therefore basically have the same name
     dump_json(stats, f"{stats_path}/{name_cleaned}.json")
 
     if args.csv:
-        csv_url = f"https://api.nettskjema.no/v3/form/{form_id}/csv-report"
+        csv_url = f"https://nettskjema.no/api/v3/form/{form_id}/csv-report"
         response = api_request(session, csv_url)
         if response.ok:
             write_to_file(csv_path, name_cleaned, 'csv', response.content.decode())
@@ -145,7 +148,7 @@ def download_files(args, session):
 
     formdata = read_binary(args.out + "/formdata.dat")
     if not formdata:
-        forms_url = "https://api.nettskjema.no/v3/form/me"
+        forms_url = "https://nettskjema.no/api/v3/form/me"
         response = api_request(session, forms_url)
         forms = response.json()
 
