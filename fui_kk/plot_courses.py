@@ -44,6 +44,23 @@ from language import determine_language
 
 color_map = {}  # Dictionary to map course codes to colors
 
+# TODO: possibly make it work with codebooks in nettskjema (pretty big task)
+
+# # Kodebok for var1
+# CUSTOM_SCALE_VAR1 = OrderedDict([
+#     (1, "Meget bra"),
+#     (2, "Ganske bra"),
+#     (3, "Noe bra"),
+#     (4, "Hverken bra eller dårlig"),
+#     (5, "Noe dårlig"),
+#     (6, "Ganske dårlig"),
+#     (7, "Meget dårlig"),
+# ])
+# CUSTOM_SCALE_VAR1_DISPLAY = [CUSTOM_SCALE_VAR1[k] for k in sorted(CUSTOM_SCALE_VAR1.keys(), reverse=True)]
+
+# # TODO: Make the years where there were few answers be represented better in some way. i.e. make the plots squares instead of circles (or something like that)
+# Maybe also fix that the years missing from the plot are shown as X's
+
 def plot_course(args):
     """
     Plot the course evaluation over semesters, handling multiple entries per semester.
@@ -51,6 +68,9 @@ def plot_course(args):
     course_name, course_data, output, scales, semester = args
     
     try:
+        term = semester[0]  # 'H' or 'V'
+        year = int(semester[1:])  # e.g. '2010' as an integer
+        
         scale_text = None
 
         # Determine the general question
@@ -62,7 +82,9 @@ def plot_course(args):
             print(f"Warning: Unable to determine the general question for the course {course_name}")
             return
 
+
         scale_val = list(range(len(scale_text)))
+        
         scale = scale_text
 
         semester_codes = list(course_data.keys())
@@ -72,7 +94,7 @@ def plot_course(args):
 
         semester_codes = sorted(semester_codes)
 
-        all_semesters = generate_full_semester_range(semester_codes)
+        all_semesters = generate_full_semester_range(semester_codes, term, year)
 
         scores_per_semester = OrderedDict()
         course_codes_per_semester = OrderedDict()
@@ -212,22 +234,24 @@ def get_general_question(course_semester):
             return question
     return None
 
-def generate_full_semester_range(semester_codes):
+def generate_full_semester_range(semester_codes, current_term, current_year):
     """
-    Generate a full range of semester codes based on the existing ones.
+    Generate a full range of semester codes based on the existing ones while ensuring chronological order
+    and limiting to semesters up to the specified semester.
     """
-    years_terms = sorted(set((int(sem[1:]), sem[0]) for sem in semester_codes if len(sem) > 1))
+    existing_years = sorted(set(int(sem[1:]) for sem in semester_codes if len(sem) > 1))
     full_range = []
 
-    if not years_terms:
-        return full_range
-
-    min_year = min(years_terms, key=lambda x: x[0])[0]
-    max_year = max(years_terms, key=lambda x: x[0])[0]
-
-    for year in range(min_year, max_year + 1):
+    for year in existing_years:
         for term in ['V', 'H']:
-            full_range.append(f"{term}{year}")
+            semester_code = f"{term}{year}"
+
+            if semester_code in semester_codes:
+                if year < current_year or (year == current_year and term <= current_term):
+                    full_range.append(semester_code)
+                elif year == current_year and term == current_term:
+                    full_range.append(semester_code)
+                    return full_range
 
     return full_range
 
