@@ -50,5 +50,5 @@ if __name__ == '__main__':
     if len(sys.argv) <= 1:
         print("Usage: participation_summary semester")
         sys.exit(0)
-    semester_folder = "./data/"+sys.argv[1]+"/"
+    semester_folder = "./data/"+sys.argv[1]
     participation_summary(semester_folder+"/outputs/courses.json", semester_folder+"/outputs/participation.tex")
