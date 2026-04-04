@@ -1,0 +1,586 @@
+{
+    "var1": {
+        "order": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+        ],
+        "all": [
+            "",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+        ],
+      "ignore": [
+        ""
+      ]
+    },
+    "var2": {
+      "order": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "all": [
+        "",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "Noe vanskelig",
+        "Noe lett"
+      ],
+      "ignore": [
+        "Noe vanskelig",
+        "Noe lett",
+        ""
+      ]
+    },
+    "var7": {
+      "order": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "all": [
+        "",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "For høy",
+        "Høy",
+        "Lav",
+        "For lav"
+      ],
+      "ignore": [
+        "For høy",
+        "Høy",
+        "For lav",
+        "Lav",
+        ""
+      ]
+    },
+    "var8": {
+        "order": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "all": [
+          "",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+      "var13": {
+        "order": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "all": [
+            "1",
+            "2",
+            "3",
+            "4",
+            ""
+          ],
+          "ignore": [
+            ""
+          ]
+          },
+    "var14": {
+      "order": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "all": [
+        "",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "ignore": [
+        ""
+      ]
+    },
+    "var17": {
+        "order": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "all": [
+          "",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+    "var18": {
+        "order": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "all": [
+          "",
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+      "var27": {
+        "order": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "all": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "",
+          "Ikke aktuelt"
+        ],
+        "ignore": [
+          "Ikke aktuelt",
+          ""
+        ]
+      },
+      "var28": {
+        "order": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "all": [
+          "",
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+      "var30": {
+        "order": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "all": [
+          "Ikke aktuelt",
+          "",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "ignore": [
+          "Ikke aktuelt",
+          ""
+        ]
+      },
+      "var32": {
+        "order": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "all": [
+          "",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+
+
+
+
+
+
+      "What is your general impression of the course?": {
+            "order": [
+                "Very good",
+                "Quite good",
+                "Somewhat good",
+                "Neither good nor bad",
+                "Somewhat bad",
+                "Quite bad",
+                "Very bad"
+            ],
+            "all": [
+                "Neither good nor bad",
+                "Somewhat good",
+                "Somewhat bad",
+                "Quite bad",
+                "Very bad",
+                "Quite good",
+                "Exceptionally bad",
+                "Exceptionally good",
+                "Very good"
+            ],
+            "ignore": [
+                "Exceptionally good",
+                "Exceptionally bad"
+            ]
+      },
+      "What do you think of the course&#39;s difficulty level?": {
+        "order": [
+          "Too difficult",
+          "Difficult",
+          "Appropriate",
+          "Easy",
+          "Too easy"
+        ],
+        "all": [
+          "",
+          "Too difficult",
+          "Difficult",
+          "Appropriate",
+          "Easy",
+          "Too easy"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+      "What do you think of the amount of work required in relation to the number of credits given?": {
+        "order": [
+          "Too large",
+          "Large",
+          "Appropriate",
+          "Small",
+          "Too small"
+        ],
+        "all": [
+          "",
+          "Too large",
+          "Large",
+          "Appropriate",
+          "Small",
+          "Too small"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+      "What do you think about the scope of topics that were covered in this course?": {
+        "order": [
+          "Too large",
+          "Large",
+          "Appropriate",
+          "Small",
+          "Too small"
+        ],
+        "all": [
+          "",
+          "Too large",
+          "Large",
+          "Appropriate",
+          "Small",
+          "Too small"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+      "How often did you participate in the lectures?": {
+        "order": [
+            "Always",
+            "Often",
+            "Rarely",
+            "Never"
+        ],
+        "all": [
+            "Always",
+            "Often",
+            "Rarely",
+            "Never",
+            ""
+          ],
+          "ignore": [
+            ""
+          ]
+      },
+      "What is your general impression of the quality of the lectures?": {
+        "order": [
+          "Very good",
+          "Quite good",
+          "Somewhat good",
+          "Neither good nor bad",
+          "Somewhat bad",
+          "Quite bad",
+          "Very bad"
+        ],
+        "all": [
+          "Somewhat good",
+          "",
+          "Somewhat bad",
+          "Neither good nor bad",
+          "Quite bad",
+          "Very bad",
+          "Quite good",
+          "Exceptionally bad",
+          "Exceptionally good",
+          "Very good"
+        ],
+        "ignore": [
+          "",
+          "Exceptionally good",
+          "Exceptionally bad"
+        ]
+      },
+      "What is your general impression of the quality of the teaching method(s)?": {
+        "order": [
+            "Very good",
+            "Quite good",
+            "Somewhat good",
+            "Neither good nor bad",
+            "Somewhat bad",
+            "Quite bad",
+            "Very bad"
+        ],
+        "all": [
+            "",
+            "Neither good nor bad",
+            "Somewhat good",
+            "Somewhat bad",
+            "Quite bad",
+            "Very bad",
+            "Quite good",
+            "Exceptionally bad",
+            "Exceptionally good",
+            "Very good"
+        ],
+        "ignore": [
+            "",
+            "Exceptionally good",
+            "Exceptionally bad"
+        ]
+    },
+    "How important was the teaching method or methods to your learning and understanding of the course curriculum?": {
+        "order": [
+            "Very important",
+            "Important",
+            "Somewhat important",
+            "Not important"
+        ],
+        "all": [
+            "",
+            "Very important",
+            "Important",
+            "Somewhat important",
+            "Not important"
+        ],
+        "ignore": [
+            ""
+        ]
+    },
+      "What do you think of the difficulty level of the assesments?": {
+        "order": [
+          "Too high",
+          "High",
+          "Appropriate",
+          "Low",
+          "Too low"
+        ],
+        "all": [
+          "Not relevant",
+          "",
+          "Too high",
+          "High",
+          "Appropriate",
+          "Low",
+          "Too low"
+        ],
+        "ignore": [
+          "Not relevant",
+          ""
+        ]
+      },
+      "How important were the assignments/assessments to your learning and understanding of the curriculum?": {
+        "order": [
+            "Very important",
+            "Important",
+            "Somewhat important",
+            "Not important"
+        ],
+        "all": [
+            "",
+            "Very important",
+            "Important",
+            "Somewhat important",
+            "Not important"
+        ],
+        "ignore": [
+            ""
+        ]
+    },
+    "What do you think of the number of assessments?": {
+        "order": [
+            "Too many",
+            "Many",
+            "Appropriate",
+            "Few",
+            "Too Few"
+          ],
+        "all": [
+            "",
+            "Too many",
+            "Many",
+            "Appropriate",
+            "Few",
+            "Too Few"
+        ],
+        "ignore": [
+            ""
+        ]
+    },
+    "What do you think of the amount of work involved with completing the assessment?": {
+        "order": [
+          "Too large",
+          "Large",
+          "Appropriate",
+          "Small",
+          "Too small"
+        ],
+        "all": [
+          "",
+          "Too large",
+          "Large",
+          "Appropriate",
+          "Small",
+          "Too small"
+        ],
+        "ignore": [
+          ""
+        ]
+      },
+      "What did you think of the difficulty level of the graded assessment?": {
+        "order": [
+          "Too high",
+          "High",
+          "Appropriate",
+          "Low",
+          "Too low"
+        ],
+        "all": [
+          "Not relevant",
+          "",
+          "Too high",
+          "High",
+          "Appropriate",
+          "Low",
+          "Too low"
+        ],
+        "ignore": [
+          "Not relevant",
+          ""
+        ]
+      },
+      "Throughout the course, how did you experience the availability of the course teachers and/or group teachers if you had questions or found something unclear?": {
+        "order": [
+            "Very good",
+            "Quite good",
+            "Somewhat good",
+            "Neither good nor bad",
+            "Somewhat bad",
+            "Quite bad",
+            "Very bad"
+        ],
+        "all": [
+            "",
+            "Neither good nor bad",
+            "Somewhat good",
+            "Somewhat bad",
+            "Quite bad",
+            "Very bad",
+            "Quite good",
+            "Exceptionally bad",
+            "Exceptionally good",
+            "Very good"
+        ],
+        "ignore": [
+            "",
+            "Exceptionally good",
+            "Exceptionally bad"
+        ]
+    }
+  }

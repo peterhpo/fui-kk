@@ -296,15 +296,18 @@
       "Exceptionally bad"
     ],
     "all": [
-      "Exceptionally bad",
+      "",
       "Exceptionally good",
       "Very good",
       "Good",
       "OK",
       "Not that good",
-      "Not good"
+      "Not good",
+      "Exceptionally bad"
     ],
-    "ignore": []
+    "ignore": [
+      ""
+    ]
   },
   "How do you rate the level of the course?": {
     "order": [
