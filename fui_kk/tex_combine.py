@@ -89,7 +89,7 @@ def tex_combine(semester, verbose=False):
         participation_string = ""
         try:
             participation = load_json(path)
-            if participation["answered"] <= 4:
+            if participation["answered"] <= 4: #TODO: HERE IS THE INVITED/ANSWERED
                 continue
             participation_string = get_participation_string(participation, language)
         except FileNotFoundError:
